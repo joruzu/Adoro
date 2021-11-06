@@ -94,10 +94,11 @@ async function collectNews() {
   console.log('check done');
 }
 collectNews();
-//cron.schedule('*/20 * * * * *', collectNews);
+// schedule set to every 10 minutes
+cron.schedule('*/10 * * * *', collectNews);
 
 // Execute this at a set time daily, to refresh db
-//cron.schedule('*/35 * * * * *', truncateNews); 
+//cron.schedule('* * * * * *', truncateNews); 
 
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
